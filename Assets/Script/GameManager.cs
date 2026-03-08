@@ -25,8 +25,12 @@ public class GameManager : MonoBehaviour
 {
     static bool isHeardTutorial = false;
     private bool isGameStart = false;
+    [SerializeField] bool isItch = true;
 
     [SerializeField] DialogueText[] tutorialDialogues;
+    [SerializeField] DialogueText[] itchStartDialogues;
+    [SerializeField] DialogueText[] itchGameoverDialogues;
+    [SerializeField] DialogueText[] itchClearDialogues;
     [SerializeField] DialogueText[] readyDialogues;
     [SerializeField] DialogueText[] gameOverDialogues;
     [SerializeField] DialogueText[] clearDialogues;
@@ -78,8 +82,12 @@ public class GameManager : MonoBehaviour
             miniGame.Init();
         }
 
-        if (!isHeardTutorial) ShowTutorialDialogues();
-        else ShowReadyDialogues();
+        if (!isItch)
+        {
+            if (!isHeardTutorial) ShowTutorialDialogues();
+            else ShowReadyDialogues();
+        }
+        else ShowTutorialDialogues();
     }
 
     private void Update()
@@ -165,8 +173,15 @@ public class GameManager : MonoBehaviour
 
     public void ShowTutorialDialogues()
     {
-        isHeardTutorial = true;
-        StartCoroutine(ShowDialogues(tutorialDialogues));
+        if(!isItch)
+        {
+            isHeardTutorial = true;
+            StartCoroutine(ShowDialogues(tutorialDialogues));
+        }
+        else
+        {
+            StartCoroutine(ShowDialogues(itchStartDialogues));
+        }
     }
     public void ShowReadyDialogues()
     {
@@ -175,12 +190,14 @@ public class GameManager : MonoBehaviour
     private void ShowGameOverDialogues()
     {
         StopGame();
-        StartCoroutine(ShowDialogues(gameOverDialogues));
+        if(!isItch) StartCoroutine(ShowDialogues(gameOverDialogues));
+        else StartCoroutine(ShowDialogues(itchGameoverDialogues));
     }
     private void ShowClearDialogues()
     {
         StopGame();
-        StartCoroutine(ShowDialogues(clearDialogues));
+        if (!isItch) StartCoroutine(ShowDialogues(clearDialogues));
+        else StartCoroutine(ShowDialogues(itchClearDialogues));
     }
 
     public void StartGame()
