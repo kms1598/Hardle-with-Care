@@ -18,8 +18,8 @@ Unity / C# / Unity WebGL
 
 - 6개 모니터 독립 게임 로직
 
-## 개발 기간
-2026. 02. ~ 2026. 03.
+## 개발기간
+2026.02. ~ 2026.03.
 
 ## 시연 영상
 https://www.youtube.com/watch?v=I6WxY8YaG-Y
