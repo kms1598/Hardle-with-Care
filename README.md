@@ -14,9 +14,9 @@ https://moonmogun.itch.io/hardle-with-care-demo
 Unity / C# / Unity WebGL
 
 ## 담당 구현
-- 상속 및 이벤트 기반 미니게임 연동 구조
+상속 및 이벤트 기반 미니게임 연동 구조
 
-- 6개 모니터 독립 게임 로직
+6개 모니터 독립 게임 로직
 
 ## 개발기간
 2026.02. ~ 2026.03.
